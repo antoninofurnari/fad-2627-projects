@@ -1,0 +1,59 @@
+# Makes the promise in INSTRUCTIONS.md §5 checkable instead of merely stated: the
+# notebooks must run top to bottom, the data must not be committed, the repository must
+# not be heavy.
+#
+# It asserts three things and judges nothing. No linting, no formatting, no opinion about
+# your analysis — a red tick for a style preference would teach everyone to ignore the
+# tick, and then it would not catch the notebook that does not run.
+#
+# GitHub disables Actions on a new fork until the owner clicks "I understand my
+# workflows, go ahead and enable them". Do that once, on the day you fork. A run that
+# never happened is not a pass.
+name: Check the submission
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Runs, and is markable
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      # The environment file is the contract: if the notebooks need something, it
+      # belongs in environment.yml, not in a cell that installs it.
+      - name: Build the environment
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          cache-environment: true
+
+      - name: Repository hygiene
+        shell: bash -el {0}
+        run: python tools/check_repo.py
+
+      # data/ is empty here, and must stay empty: download.py is never run, so no
+      # credentials are needed and a fork with no secrets goes green. The notebooks are
+      # written to degrade to zero rows rather than raise — see src/fadproj/load_clean.
+      - name: The notebooks run top to bottom on an empty data/
+        shell: bash -el {0}
+        run: |
+          for nb in notebooks/*.ipynb; do
+            echo "::group::$nb"
+            jupyter nbconvert --to notebook --execute "$nb" \
+              --output-dir /tmp/executed --ExecutePreprocessor.timeout=900
+            echo "::endgroup::"
+          done
+
+      # So the traceback is readable without re-running anything locally.
+      - name: Keep the executed notebooks when something fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: executed-notebooks
+          path: /tmp/executed
+          if-no-files-found: ignore
