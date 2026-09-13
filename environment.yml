@@ -1,0 +1,19 @@
+name: fad-project
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy>=2
+  - pandas>=2.2,<3
+  - matplotlib>=3.9
+  - seaborn>=0.13
+  - scipy>=1.14
+  - scikit-learn>=1.5
+  - statsmodels>=0.14
+  - jupyterlab
+  - ipykernel
+  - nbformat
+  - nbconvert          # the repository check executes the notebooks with it
+  - pip
+  - pip:
+      - nbstripout

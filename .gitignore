@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+.env
+.venv/
+env/
+# figures/ is NOT ignored: README.md and CONTRIBUTING.md ask you to export the
+# charts you use in the report and the slides, and the repository check caps
+# their size instead.
