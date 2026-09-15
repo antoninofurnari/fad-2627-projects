@@ -1,6 +1,5 @@
-# Makes the promise in INSTRUCTIONS.md §5 checkable instead of merely stated: the
-# notebooks must run top to bottom, the data must not be committed, the repository must
-# not be heavy.
+# Makes the promise in README.md checkable instead of merely stated: the notebook must
+# run top to bottom, the data must not be committed, the repository must not be heavy.
 #
 # It asserts three things and judges nothing. No linting, no formatting, no opinion about
 # your analysis — a red tick for a style preference would teach everyone to ignore the
@@ -36,9 +35,9 @@ jobs:
         shell: bash -el {0}
         run: python tools/check_repo.py
 
-      # data/ is empty here, and must stay empty: download.py is never run, so no
-      # credentials are needed and a fork with no secrets goes green. The notebooks are
-      # written to degrade to zero rows rather than raise — see src/fadproj/load_clean.
+      # data/ is empty here, and must stay empty: no credentials are needed and a fork
+      # with no secrets goes green. The starting notebook reads the dataset only if the
+      # file is there, so it degrades to zero rows rather than raising.
       - name: The notebooks run top to bottom on an empty data/
         shell: bash -el {0}
         run: |

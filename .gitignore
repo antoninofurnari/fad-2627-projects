@@ -5,6 +5,3 @@ __pycache__/
 .env
 .venv/
 env/
-# figures/ is NOT ignored: README.md and CONTRIBUTING.md ask you to export the
-# charts you use in the report and the slides, and the repository check caps
-# their size instead.

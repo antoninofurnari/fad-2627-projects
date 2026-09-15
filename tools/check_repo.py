@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the things `INSTRUCTIONS.md` §5 says decide whether the work is marked at all.
+"""Check the things `README.md` says decide whether the work is marked at all.
 
 Run it yourself before you tag a submission:
 
@@ -55,10 +55,10 @@ def main() -> int:
             continue
 
         if rel.parts and rel.parts[0] == "data" and path.name not in DATA_ALLOWED:
-            failures.append(f"{rel}: data must not be committed (INSTRUCTIONS.md §5)")
+            failures.append(f"{rel}: data must not be committed")
 
         if path.suffix.lower() in DATA_SUFFIXES and rel.parts[0] != "docs":
-            failures.append(f"{rel}: a data file is committed; write data/download.py instead")
+            failures.append(f"{rel}: a data file is committed; say in data/README.md how to obtain it")
 
         if path.suffix == ".ipynb" and path.exists():
             size = path.stat().st_size
@@ -75,6 +75,8 @@ def main() -> int:
                                     f"nobody else can run that cell")
                     break
 
+        # figures/ is optional now — the notebook carries its own charts — but if a
+        # group exports them, the size cap still applies.
         if rel.parts and rel.parts[0] == "figures" and path.exists():
             if path.stat().st_size > FIGURE_MAX:
                 failures.append(f"{rel}: {path.stat().st_size/1e6:.1f} MB — export the "
@@ -88,7 +90,7 @@ def main() -> int:
 
     licence = ROOT / "LICENSE"
     if licence.exists() and "[Group members]" in licence.read_text(encoding="utf-8"):
-        warnings.append("LICENSE: still says [Group members] (INSTRUCTIONS.md §8)")
+        warnings.append("LICENSE: still says [Group members]")
     readme = ROOT / "README.md"
     if readme.exists() and "*(name and ID)*" in readme.read_text(encoding="utf-8"):
         warnings.append("README.md: the group placeholders are still there")
