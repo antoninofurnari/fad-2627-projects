@@ -3,8 +3,12 @@
 Template per il progetto del corso. Si lavora su un dataset assegnato per gruppo, in due
 parti, e si presenta il lavoro all'esame.
 
-**Gruppo:** *(nome e matricola)* · *(nome e matricola)* · *(nome e matricola)*
-**Dataset assegnato:** *(nome)*
+**Gruppo:** 
+ - Nome e Cognome
+ - Nome e Cognome
+ - Nome e Cognome
+
+**Dataset assegnato:** (nome)
 
 ## Le due parti
 
@@ -35,24 +39,3 @@ Si lavora su un fork di questo repository. Tre modi, quello che preferite:
 - fork **pubblico** e mandate il link;
 - fork **privato** con `antoninofurnari` aggiunto come collaboratore;
 - oppure uno **zip** del repository via e-mail.
-
-## Quello che fa tornare indietro il lavoro
-
-Queste non sono valutazioni dell'analisi: sono le condizioni perché l'analisi venga letta.
-
-- Il notebook deve girare **dall'inizio alla fine** in un ambiente pulito.
-- I **dati non si committano**, e i percorsi assoluti (`C:\Users\...`, `/content/drive/...`)
-  non funzionano sulla macchina di nessun altro.
-- Notebook sotto i 5 MB: togliete gli output prima di consegnare, o alleggerite le figure.
-- Servono una **ripartizione del lavoro** fra i componenti e una **dichiarazione di come
-  avete usato l'AI generativa**: scrivetele in fondo al notebook.
-
-`python tools/check_repo.py` verifica queste condizioni, ed è lo stesso controllo che gira
-automaticamente a ogni push sul vostro fork.
-
-## Una nota sul merito
-
-Un risultato negativo, argomentato con le evidenze, vale quanto uno positivo:
-un'analisi che conclude «i dati non permettono di rispondere a questa domanda», e mostra
-perché, è un'analisi riuscita. Quello che non vale è la tecnica applicata perché era nel
-programma.
