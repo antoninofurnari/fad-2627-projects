@@ -14,8 +14,8 @@ parti, e si presenta il lavoro all'esame.
 
 | | Cosa si fa | Quando |
 |:--|:--|:--|
-| **[Parte 1](docs/parte_1.md)** | analisi esplorativa e inferenziale | rivista in aula il giorno della prima prova in itinere |
-| **[Parte 2](docs/parte_2.md)** | modellare: spiegare, predire, rappresentare | ripresa in aula prima della pausa di Natale |
+| **[Parte 1](docs/parte_1.md)** | descrivere, inferire, spiegare — il Modulo 1 | rivista in aula il giorno della prima prova in itinere |
+| **[Parte 2](docs/parte_2.md)** | predire e rappresentare — il Modulo 2 | ripresa in aula prima della pausa di Natale |
 
 **La consegna è una sola, a fine gennaio**: un notebook con tutte e due le parti. La
 revisione di novembre serve a correggere la rotta finché c'è tempo, e non fa media.

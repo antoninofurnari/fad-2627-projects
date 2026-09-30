@@ -1,15 +1,16 @@
-# Parte 1 — Analisi esplorativa e inferenziale
+# Parte 1 — Descrivere, inferire, spiegare
 
 ## Obiettivo
 
-Applicare le metodologie viste nel corso per condurre un'analisi completa del dataset
-assegnato: partendo dai dati grezzi, esplorarli, pulirli, visualizzarli e infine
-interrogarli con strumenti statistici.
+Applicare le metodologie del **Modulo 1** per condurre un'analisi completa del dataset
+assegnato: partendo dai dati grezzi, esplorarli, pulirli, visualizzarli, interrogarli con
+strumenti statistici e infine modellarli per spiegare che cosa è associato a che cosa.
 
 Lo scopo è trasformare i dati in conoscenza: identificare regolarità, scoprire relazioni
-fra le variabili, verificare ipotesi. L'analisi non è una sequenza di comandi, ma una
-narrazione sostenuta da evidenze quantitative e grafiche. **Le domande le scrivete voi**:
-l'e-mail di assegnazione descrive il dataset, non dice che cosa chiedergli.
+fra le variabili, verificare ipotesi, quantificarle e dire che cosa autorizzano a
+concludere. L'analisi non è una sequenza di comandi, ma una narrazione sostenuta da
+evidenze quantitative e grafiche. **Le domande le scrivete voi**: l'e-mail di assegnazione
+descrive il dataset, non dice che cosa chiedergli.
 
 ## 1. Comprensione del dataset
 
@@ -76,8 +77,9 @@ B»); l'inferenza stabilisce se quello che si è osservato è compatibile con il
    - due variabili quantitative → test sul coefficiente di correlazione.
 
    Se il vostro confronto ha **più di due gruppi**, confrontate le coppie che vi
-   interessano davvero e dite quante ne avete confrontate (punto 5); nella Parte 2 i
-   modelli di regressione vi permetteranno di trattare tutti i gruppi in una volta sola.
+   interessano davvero e dite quante ne avete confrontate (punto 6). In alternativa,
+   la regressione della §5 tratta tutti i gruppi in un modello solo, con le variabili
+   dummy: è la strada più pulita, e la vedete a lezione il 27 ottobre.
 4. **Verificate le assunzioni** prima di fidarvi del risultato: la normalità con un Q-Q
    plot o un test (Shapiro-Wilk, D'Agostino), e guardate la dimensione dei gruppi. Se
    l'assunzione non regge, ditelo e trattate il risultato per quello che è.
@@ -91,13 +93,36 @@ B»); l'inferenza stabilisce se quello che si è osservato è compatibile con il
    riportato perché non davano niente. Se ne fate dieci a $\alpha=0.05$, uno «significativo»
    per puro caso è l'esito atteso, non una scoperta: chi legge deve poterlo sapere.
 
+## 5. Spiegare
+
+Qui contano l'interpretazione dei coefficienti e la loro incertezza, non la prestazione
+predittiva.
+
+- **Scelta delle variabili.** Partendo dall'analisi esplorativa, individuate una o più
+  variabili risposta e un insieme di predittori che abbiano senso nel problema.
+- **Modello.** Con `statsmodels`: regressione lineare se la risposta è quantitativa,
+  logistica o multinomiale se è categorica; termini di interazione dove servono.
+- **Interpretazione.** Che cosa significa ogni coefficiente nelle unità del problema, a
+  parità delle altre variabili. Quali predittori sono distinguibili dal caso, e con quale
+  intervallo. Quanto il modello si adatta ai dati.
+- **Diagnostica.** Controllate le assunzioni: i residui contro i valori predetti, la
+  collinearità fra i predittori, i valori influenti.
+
+## 6. Ragionare sulle cause
+
+Un coefficiente non è un effetto causale. Disegnate che cosa causa che cosa, dichiarate i
+confondenti e gli effetti di selezione che vedete, e dite esplicitamente per che cosa il
+vostro modello aggiusta e per che cosa no. Dove l'aggiustamento non basta, scrivetelo:
+è una conclusione, non una lacuna.
+
 ## Che cosa si consegna
 
-Un notebook che si legge da solo: il codice di pulizia, analisi e inferenza, commentato;
-i grafici leggibili, con titolo, assi etichettati con l'unità di misura e legenda dove
-serve; e le celle di testo che guidano chi legge attraverso l'analisi — motivando le
-scelte di pulizia, commentando che cosa si vede nei grafici e negli indici, e spiegando
-come è stato impostato e come va letto ogni confronto statistico.
+Un notebook che si legge da solo: il codice di pulizia, analisi, inferenza e
+modellazione, commentato; i grafici leggibili, con titolo, assi etichettati con l'unità di
+misura e legenda dove serve; e le celle di testo che guidano chi legge attraverso
+l'analisi — motivando le scelte di pulizia, commentando che cosa si vede nei grafici e
+negli indici, spiegando come è stato impostato e come va letto ogni confronto statistico,
+e leggendo i coefficienti nelle unità del problema.
 
 Si chiude tornando alle domande di partenza: a quali hanno risposto i dati, a quali no, e
 che cosa servirebbe per rispondere alle altre.
