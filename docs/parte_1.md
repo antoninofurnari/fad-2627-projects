@@ -8,8 +8,8 @@ interrogarli con strumenti statistici.
 
 Lo scopo è trasformare i dati in conoscenza: identificare regolarità, scoprire relazioni
 fra le variabili, verificare ipotesi. L'analisi non è una sequenza di comandi, ma una
-narrazione sostenuta da evidenze quantitative e grafiche. A ogni dataset assegnato sono
-allegate alcune domande a cui è obbligatorio rispondere.
+narrazione sostenuta da evidenze quantitative e grafiche. **Le domande le scrivete voi**:
+l'e-mail di assegnazione descrive il dataset, non dice che cosa chiedergli.
 
 ## 1. Comprensione del dataset
 
@@ -33,8 +33,9 @@ Da questa fase dipende l'affidabilità di tutto il resto.
   numero o data; uniformate le categorie scritte in modi diversi (`USA`, `U.S.A.`,
   `Stati Uniti`).
 - **Valori anomali.** Individuateli (per esempio con un boxplot) e decidete: errore di
-  inserimento da correggere o rimuovere, oppure valore estremo ma legittimo da tenere. In
-  entrambi i casi, dite perché.
+  inserimento da correggere o rimuovere, oppure valore estremo ma legittimo da tenere —
+  eventualmente trasformandolo, per esempio con un logaritmo. In entrambi i casi, dite
+  perché.
 - **Conteggio delle righe.** Riportate quante righe avevate all'inizio e quante ne
   sopravvivono a ogni passo. Una pulizia che elimina in silenzio metà dei dati è un
   risultato dell'analisi, non un dettaglio tecnico.
@@ -64,13 +65,31 @@ B»); l'inferenza stabilisce se quello che si è osservato è compatibile con il
 1. **Partite da un'osservazione** emersa nella fase precedente e formulate una domanda
    precisa: la differenza di prezzo fra prodotti «bio» e «standard» è reale, o è una
    fluttuazione del campione?
-2. **Stimate con un intervallo**, dove ha senso, invece che con un solo numero.
-3. **Scegliete il confronto adatto** al tipo di dati: due gruppi indipendenti su una
-   variabile quantitativa, associazione fra due variabili categoriche, più di due gruppi.
-4. **Eseguite, interpretate e concludete** nel contesto del problema — riportando anche la
-   **dimensione dell'effetto**, non solo se è significativo. Con un campione grande quasi
-   tutto risulta significativo: dite che cosa è anche abbastanza grande da contare.
-5. **Correggete per i confronti multipli** se ne fate più d'uno, e dichiarate su quanti.
+2. **Stimate con un intervallo**, dove ha senso, invece che con un solo numero. Una
+   differenza fra medie riportata con il suo intervallo di confidenza dice molto più di
+   un p-value: dice *quanto* è grande, e con quanta incertezza.
+3. **Scegliete il confronto adatto** al tipo di dati, fra quelli visti a lezione:
+   - una media contro un valore di riferimento → test t a un campione;
+   - due gruppi indipendenti su una variabile quantitativa → test t a due campioni;
+   - associazione fra due variabili categoriche → $\chi^2$ di indipendenza;
+   - una distribuzione osservata contro una attesa → $\chi^2$ di adattamento;
+   - due variabili quantitative → test sul coefficiente di correlazione.
+
+   Se il vostro confronto ha **più di due gruppi**, confrontate le coppie che vi
+   interessano davvero e dite quante ne avete confrontate (punto 5); nella Parte 2 i
+   modelli di regressione vi permetteranno di trattare tutti i gruppi in una volta sola.
+4. **Verificate le assunzioni** prima di fidarvi del risultato: la normalità con un Q-Q
+   plot o un test (Shapiro-Wilk, D'Agostino), e guardate la dimensione dei gruppi. Se
+   l'assunzione non regge, ditelo e trattate il risultato per quello che è.
+5. **Eseguite, interpretate e concludete** nel contesto del problema, riportando
+   **quanto è grande** l'effetto e non solo se è significativo: la differenza fra le medie
+   nelle unità del problema con il suo intervallo, il coefficiente di correlazione, la V di
+   Cramér per l'associazione fra categoriche. Con un campione grande quasi tutto risulta
+   significativo — lo avete visto a lezione, lo stesso scarto che a $n=1000$ dava $p=0.11$
+   a $n=5000$ dà $p=0.02$ — quindi dite che cosa è anche abbastanza grande da contare.
+6. **Dichiarate quanti test avete eseguito** in tutto, compresi quelli che non avete
+   riportato perché non davano niente. Se ne fate dieci a $\alpha=0.05$, uno «significativo»
+   per puro caso è l'esito atteso, non una scoperta: chi legge deve poterlo sapere.
 
 ## Che cosa si consegna
 
@@ -79,3 +98,6 @@ i grafici leggibili, con titolo, assi etichettati con l'unità di misura e legen
 serve; e le celle di testo che guidano chi legge attraverso l'analisi — motivando le
 scelte di pulizia, commentando che cosa si vede nei grafici e negli indici, e spiegando
 come è stato impostato e come va letto ogni confronto statistico.
+
+Si chiude tornando alle domande di partenza: a quali hanno risposto i dati, a quali no, e
+che cosa servirebbe per rispondere alle altre.

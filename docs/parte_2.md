@@ -2,17 +2,25 @@
 
 ## Obiettivo
 
-Estendere l'analisi della Parte 1 passando dalla descrizione alla modellazione, sullo
-stesso dataset e nello stesso notebook, aggiungendo nuove sezioni.
+La Parte 1 ha descritto il fenomeno. Qui lo si **modella**: sullo stesso dataset e nello
+stesso notebook, aggiungendo nuove sezioni dove finisce la Parte 1.
 
-L'obiettivo qui si sdoppia:
+Un modello si costruisce per tre scopi diversi, e le quattro sezioni che seguono sono
+questi tre più la domanda che tiene insieme i primi due:
 
-- **spiegare**: usare modelli di regressione per quantificare le relazioni fra le
-  variabili e capire il peso dei fattori in gioco — *di quanto cresce la pressione per
-  ogni anno di età in più?*;
-- **predire**: costruire un sistema che stimi valori o classifichi casi nuovi, con un
-  valore pratico — *si può riconoscere il diabete dai soli esami del sangue, evitando
+- **spiegare** (§1) — quantificare le relazioni fra le variabili e il peso dei fattori in
+  gioco: *di quanto cresce la pressione per ogni anno di età in più?*
+- **ragionare sulle cause** (§2) — dire che cosa quel coefficiente autorizza a concludere,
+  e che cosa no;
+- **predire** (§3) — costruire un sistema che stimi valori o classifichi casi nuovi, con
+  un valore pratico: *si può riconoscere il diabete dai soli esami del sangue, evitando
   accertamenti più invasivi?*
+- **rappresentare** (§4) — cambiare la forma dei dati per vederci qualcosa che nella
+  tabella di partenza non si vedeva.
+
+**Quando si può cominciare.** Le sezioni 1 e 2 poggiano sulle lezioni di regressione e di
+analisi causale, che finiscono a inizio novembre: potete scriverle subito dopo, senza
+aspettare. Le sezioni 3 e 4 hanno bisogno del Modulo 2, che si chiude a metà dicembre.
 
 ## 1. Spiegare
 

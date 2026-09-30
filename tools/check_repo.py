@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the things `README.md` says decide whether the work is marked at all.
+"""Check the things that decide whether the work is marked at all.
 
 Run it yourself before you tag a submission:
 
@@ -11,8 +11,8 @@ this only checks the rules that would otherwise have the work handed back unread
 
 **Fails** on data committed to the repository, a notebook above 5 MB, an absolute path
 inside a notebook, or oversized figures. **Warns** on placeholders left unfilled. It
-never inspects your results, never runs `data/download.py`, and needs no credentials: a
-fresh fork with an empty `data/` must pass.
+never inspects your results and needs no credentials: a fresh fork with an empty
+`data/` must pass.
 """
 
 from __future__ import annotations
